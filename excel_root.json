@@ -71,9 +71,7 @@
                                         "font": "HelveticaNeue-Bold",
                                         "size": "15"
                                     },
-                                    "href": {
-                                        "url": "{{feed}}"
-                                    },
+                                    "url": "https://raw.githubusercontent.com/steve21124/snippetjson/master/excel_root.json",
                                     "text": "{{name}}"
                                 }
                             }
