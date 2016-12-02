@@ -1,0 +1,86 @@
+{
+    "$jason": {
+        "head": {
+            "title": "Kitty",
+            "description": "[recent] Kitty without users",
+            "offline": "true",
+            "tags": [
+                     "producthunt",
+                     "oauth"
+                     ],
+            "website": {
+                "text": "Visit this link to learn how to use",
+                "url": "http://www.openjason.org/help"
+            },
+            "actions": {
+                "$pull": {
+                    "trigger": "fetch"
+                },
+                "$foreground": {
+                    "trigger": "fetch"
+                },
+                "$show": {
+                    "trigger": "fetch"
+                },
+                "$load": {
+                    "trigger": "fetch"
+                },
+                "fetch": {
+                    "type": "$network.request",
+                    "options": {
+                        "url": "https://github.com/steve21124/exceltest/raw/master/timer.xls",
+                        "data_type": "excel"
+                    },
+                    "success": {
+                        "type": "$excel.saveToDB",
+                        "options": {
+                            "source_url": "https://github.com/steve21124/exceltest/raw/master/timer.xls"
+                        },
+                        "success": {
+                            "type": "$render"
+                        }
+                    }
+                }
+            },
+            "templates": {
+                "body": {
+                    "sections": [{
+                                 "items": {
+                                    "{{#each $jason.worksheets[1]}}": {
+                                        "type": "label",
+                                        "style": {
+                                             "padding": "10",
+                                             "font": "HelveticaNeue-Bold",
+                                             "size": "15"
+                                        },
+                                        "href": {
+                                            "url": "cc"
+                                        },
+                                        "text": "ddd"
+                                    }
+                                 }
+                                 
+                                 }],
+                    "footer": {
+                        "tabs": {
+                            "items": {
+                                "{{#each $jason.worksheets[0].slice(0,5) }}": {
+                                    "type": "label",
+                                    "style": {
+                                        "padding": "10",
+                                        "font": "HelveticaNeue-Bold",
+                                        "size": "15"
+                                    },
+                                    "href": {
+                                        "url": "{{feed}}"
+                                    },
+                                    "text": "{{name}}"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
